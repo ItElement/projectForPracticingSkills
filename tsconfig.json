@@ -11,7 +11,10 @@
     "allowJs": true,
     "moduleResolution": "node",
     // Для абсолютного импорта
-//    "baseUrl": ".",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     // позволяет работать с пакетами, которые используют
     // common js как с обычными пакетами с помощью import
     "esModuleInterop": true,
