@@ -1,4 +1,14 @@
 {
   "Текстовый перевод": "Test example",
-  "Язык": "English"
+  "Язык": "English",
+
+
+  "Страница не найдена": "Page not found",
+
+
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Обновить страницу": "Refresh the page",
+
+
+  "Выдает ошибку": "throw error"
 }
