@@ -3,7 +3,8 @@ import { type ButtonHTMLAttributes, type FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
-    CLEAR = 'clear'
+    CLEAR = 'clear',
+    OUTLINE = 'outline',
 }
 
 // для передачи из вне дополнительных классов
