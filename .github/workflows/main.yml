@@ -28,6 +28,7 @@ jobs:
       - name: linting typescript
         run: npm run lint:ts
 
+
   scss:
     runs-on: ubuntu-latest
     strategy:
