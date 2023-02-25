@@ -7,10 +7,9 @@ on:
 jobs:
   pipeline:
 #    runs-on: ubuntu-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: macos
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
         node-version: [ 17.x ]
 
     steps:
