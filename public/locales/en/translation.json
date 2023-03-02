@@ -15,5 +15,8 @@
   "Главная": "Main",
   "О сайте": "About",
 
-  "Войти": "Log In"
+  "Войти": "Log In",
+
+  "increment": "increment",
+  "decrement": "decrement"
 }
