@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { memo, Suspense, useEffect } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
@@ -7,7 +7,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
 
-const App = () => {
+const App = memo(() => {
     const { theme } = useTheme();
     const dispatch = useDispatch();
 
@@ -26,6 +26,6 @@ const App = () => {
             </Suspense>
         </div>
     );
-};
+});
 
 export default App;
