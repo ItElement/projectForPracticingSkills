@@ -111,6 +111,7 @@
         "target": "chrome.docker",
         "preset": "iPhone 7"
       }
-    }
+    },
+    "fetchFailIgnore": "http://172.24.240.1:6006/profile"
   }
 }

@@ -1,3 +1,4 @@
+export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 export {
     profileActions,
     profileReducer,
@@ -6,3 +7,6 @@ export {
     ProfileSchema,
     Profile,
 } from './model/types/profile';
+export {
+    fetchProfileData,
+} from './model/services/fetchProfileData/fetchProfileData';

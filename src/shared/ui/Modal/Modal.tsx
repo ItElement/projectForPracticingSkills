@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
@@ -20,7 +20,7 @@ export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
-        isOpen,
+        isOpen = false,
         onClose,
         lazy,
     } = props;
@@ -61,7 +61,7 @@ export const Modal = (props: ModalProps) => {
         if (isOpen) {
             timerRef.current = setTimeout(() => {
                 setIsOpening(true);
-            }, 0);
+            }, 10);
             window.addEventListener('keydown', onKeyDown);
         }
 
@@ -72,7 +72,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpening,
         [cls.isClosing]: isClosing,
         [cls[theme]]: true,
