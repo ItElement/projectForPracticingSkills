@@ -1,6 +1,17 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
   "Ваше имя": "Your name",
-  "Ваша фамилия": "Your last name"
+  "Ваша фамилия": "Your last name",
+  "Ваш возраст": "Your age",
+  "Ваш город": "Your city",
+  "Укажите валюту": "Specify the currency",
+  "Укажите страну": "Specify the country",
+  "Введите имя пользователя": "Enter the username",
+  "Введите ссылку на аватар": "Enter the link to the avatar",
+  "Произошла ошибка при загрузке профиля": "Error loading profile",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Аватар": "Avatar"
 }
