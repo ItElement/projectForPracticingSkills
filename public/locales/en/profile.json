@@ -13,5 +13,10 @@
   "Введите ссылку на аватар": "Enter the link to the avatar",
   "Произошла ошибка при загрузке профиля": "Error loading profile",
   "Попробуйте обновить страницу": "Try refreshing the page",
-  "Аватар": "Avatar"
+  "Аватар": "Avatar",
+  "Серверная ошибка при сохранении": "Server error when saving",
+  "Некорректный регион": "Invalid region",
+  "Некорректный возраст": "Incorrect age",
+  "Имя и фамилия обязательны": "First and last name are required",
+  "Данные не указаны": "Data is not specified"
 }
