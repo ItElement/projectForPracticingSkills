@@ -31,6 +31,7 @@ export function createReduxStore(
                 // можем передать любые данные
                 extraArgument: {
                     api: $api,
+                    // storybook
                     navigate,
                 },
             },
