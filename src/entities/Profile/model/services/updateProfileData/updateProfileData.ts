@@ -6,7 +6,11 @@ import { Profile, ValidateProfileError } from '../../types/profile';
 
 // в джинерике первыйм аргументом, то что мы возвращаем,
 // а второй это аргумент который принимаем
-export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
+export const updateProfileData = createAsyncThunk<
+    Profile,
+    void,
+    ThunkConfig<ValidateProfileError[]>
+>(
     'profile/updateProfileData',
     async (_, thunkAPI) => {
         const {
@@ -27,7 +31,10 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<Val
 
         try {
             // put запрос на обновление данных
-            const response = await extra.api.put<Profile>('/profile', formData);
+            const response = await extra.api.put<Profile>(
+                `/profile/${formData?.id}`,
+                formData,
+            );
 
             if (!response.data) {
                 throw new Error();

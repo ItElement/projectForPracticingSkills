@@ -8,13 +8,6 @@ interface LoginByUsernameProps {
     password: string;
 }
 
-// когда разные ошибки могут быть, то создаем перечисление
-// и добавляем в стейт, а в компоненте выволим перевод нужной ошибки
-// enum LoginErrors {
-//     INCORRECT_DATA = '',
-//     SERVER_ERROR = '',
-// }
-
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
