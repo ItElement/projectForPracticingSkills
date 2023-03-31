@@ -40,6 +40,7 @@ export const addCommentForArticle = createAsyncThunk<
                 throw new Error();
             }
 
+            // повторный запрос, чтобы обновились комментарии
             dispatch(fetchCommentsByArticleId(article.id));
 
             return response.data;

@@ -1,28 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Comment } from 'entities/Comment';
+import { Article } from 'entities/Article';
 
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент
-export const fetchCommentsByArticleId = createAsyncThunk<
-    Comment[],
-    string | undefined,
+export const fetchArticlesList = createAsyncThunk<
+    Article[],
+    void,
     ThunkConfig<string>
 >(
-    'articleDetails/fetchCommentsByArticleId',
-    async (articleId, thunkAPI) => {
+    'articlesPage/fetchArticlesList',
+    async (_, thunkAPI) => {
         const {
             extra,
             rejectWithValue,
         } = thunkAPI;
 
-        if (!articleId) {
-            return rejectWithValue('error');
-        }
-
         try {
-            const response = await extra.api.get<Comment[]>('/comments', {
+            const response = await extra.api.get<Article[]>('/articles', {
                 params: {
-                    articleId,
                     _expand: 'user',
                 },
             });
