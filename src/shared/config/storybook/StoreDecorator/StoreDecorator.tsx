@@ -8,6 +8,7 @@ import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addC
 import {
     articleDetailsCommentsReducer,
 } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
@@ -15,6 +16,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
+    articlesPage: articlesPageReducer,
 };
 
 // используем DeepPartial тк в самой стейт схеме много обязательных полей
