@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { InputCommon } from 'shared/ui/InputCommon/InputCommon';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 const MainPage = memo(() => {
     const { t } = useTranslation('main');
