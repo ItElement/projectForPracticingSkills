@@ -1,8 +1,11 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleView } from 'entities/Article';
-import { ArticlePageSchema } from 'pages/ArticlesPage';
+import {
+    Article, ArticleSortFiled, ArticleTypes, ArticleView,
+} from 'entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { SortOrder } from 'shared/types';
+import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -27,6 +30,11 @@ const articlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
+        sort: ArticleSortFiled.CREATED,
+        search: '',
+        order: 'desc',
+        type: ArticleTypes.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -35,6 +43,18 @@ const articlePageSlice = createSlice({
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ArticleSortFiled>) => {
+            state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleTypes>) => {
+            state.type = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
@@ -45,20 +65,29 @@ const articlePageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            // начал выполняться async action
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+
+                // очищаем массив
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
-            // произошла ошибка или успешно загрузили данные
-            // action ожидаем на вход Article
             .addCase(fetchArticlesList.fulfilled, (
                 state,
-                action: PayloadAction<Article[]>,
+                action,
             ) => {
                 state.isLoading = false;
-                articlesAdapter.addMany(state, action.payload);
-                state.hasMore = action.payload.length > 0;
+                // проверка окончания данных(пришло меньше лимита, значит это последняя страница)
+                state.hasMore = action.payload.length > state.limit;
+
+                // если replace, то setAll, в противном случаем подгружаем в конец
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

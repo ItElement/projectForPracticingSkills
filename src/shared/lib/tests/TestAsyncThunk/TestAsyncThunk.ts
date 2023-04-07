@@ -35,7 +35,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
         this.navigate = jest.fn();
     }
 
-    // логика вызоова фкшин криэйтора
+    // логика вызоова акшин криэйтора
     async callThunk(arg: Arg) {
         const action = this.actionCreator(arg);
         const result = await action(

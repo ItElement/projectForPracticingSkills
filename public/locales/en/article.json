@@ -8,5 +8,18 @@
   "Отправить": "Submit",
 
   "Читать далее": "Read more",
-  "Назад к списку": "Back to the list"
+  "Назад к списку": "Back to the list",
+  "Сортировать ПО": "Sort BY",
+  "Поиск": "Search",
+  "по": "by",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "дате создания": "date of creation",
+  "названию": "title",
+  "просмотрам": "views",
+  "Все статьи": "All articles",
+  "Программирование":"IT",
+  "Экономика": "Economy",
+  "Наука": "Science",
+  "Статьи не найдены": "Articles not found"
 }
