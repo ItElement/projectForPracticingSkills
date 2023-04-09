@@ -17,7 +17,7 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
     // articlesPage: {
-    //     isLoading: true,
-    //     hasMore: false,
+    //     page: 1,
+    //
     // },
 })];

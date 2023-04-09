@@ -80,7 +80,7 @@ const articlePageSlice = createSlice({
             ) => {
                 state.isLoading = false;
                 // проверка окончания данных(пришло меньше лимита, значит это последняя страница)
-                state.hasMore = action.payload.length > state.limit;
+                state.hasMore = action.payload.length >= state.limit;
 
                 // если replace, то setAll, в противном случаем подгружаем в конец
                 if (action.meta.arg.replace) {

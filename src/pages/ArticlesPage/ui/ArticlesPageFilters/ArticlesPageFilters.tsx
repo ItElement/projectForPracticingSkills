@@ -48,6 +48,9 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
+        // две строчки добавил, чтобы исправить баг с переключением view
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({}));
     }, [dispatch]);
 
     const onChangeSort = useCallback((newSort: ArticleSortFiled) => {

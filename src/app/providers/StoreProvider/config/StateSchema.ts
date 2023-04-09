@@ -12,11 +12,17 @@ import {
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailCommentsSchema } from 'pages/ArticleDetailsPage';
+import {
+    ArticleDetailCommentsSchema,
+    ArticleDetailsPageRecommendationsSchema, ArticleDetailsPageSchema,
+} from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
 
+// объединили два редюсера в articleDetailsPage
+// articleDetailsComments?: ArticleDetailCommentsSchema;
+// articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema;
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
@@ -25,9 +31,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailCommentsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlePageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 // достаем ключи
