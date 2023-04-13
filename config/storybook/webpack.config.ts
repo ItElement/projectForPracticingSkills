@@ -8,6 +8,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
         build: '',
         html: '',
         entry: '',
+        // если бы настраивали переводы и ключи были на англ
+        // то нужно было указать путь к папке с переводами
         buildLocales: '',
         locales: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
