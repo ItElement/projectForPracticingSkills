@@ -9,7 +9,6 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import {
@@ -19,6 +18,8 @@ import {
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/editableProfileCard';
 
 // объединили два редюсера в articleDetailsPage
 // articleDetailsComments?: ArticleDetailCommentsSchema;
@@ -27,6 +28,7 @@ export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scroll: ScrollSaveSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
     // асинхронные редюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;

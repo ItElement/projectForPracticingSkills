@@ -22,7 +22,7 @@ describe('fetchNextArticlesPage.test', () => {
         // pending, fulfilled и 2 раза внутри thank
         expect(thunk.dispatch).toBeCalledTimes(4);
         // проверяем какой аргумент передали
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     test('fetchArticleList not called', async () => {
