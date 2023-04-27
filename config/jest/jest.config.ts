@@ -45,6 +45,16 @@ export default {
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         // axios: 'axios/dist/node/axios.cjs',
     },
+    // для удобного отображения ошибок в unit теста
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            // openReport: true,
+            inlineSource: true,
+        }],
+    ],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

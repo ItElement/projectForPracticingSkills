@@ -1,9 +1,11 @@
 // чтобы подключались эндпоинты лениво и не попадали в главный чанк
 import { rtkApi } from 'shared/api/rtkApi';
+import { Article } from 'entities/Article';
 
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        getArticleRecommendationsList: build.query({
+        // возвращает первое в джинерике, второе принимает
+        getArticleRecommendationsList: build.query<Article[], number>({
             query: (limit) => ({
                 url: '/articles',
                 params: {
