@@ -3,7 +3,11 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from '../../types/article';
 
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<
+    Article,
+    string | undefined,
+    ThunkConfig<string>
+>(
     'articleDetails/fetchArticleById',
     async (articleId, thunkAPI) => {
         const {
@@ -17,6 +21,10 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
                     _expand: 'user',
                 },
             });
+
+            if (!articleId) {
+                throw new Error();
+            }
 
             if (!response.data) {
                 throw new Error();

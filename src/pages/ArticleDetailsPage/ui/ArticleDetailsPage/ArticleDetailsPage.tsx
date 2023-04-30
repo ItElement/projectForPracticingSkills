@@ -36,21 +36,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     // получем id из url, который указан в нашем конфиге 'ссыдка:id'
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
-        if (__PROJECT__ === 'storybook') {
-            return (
-                <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                    <ArticleDetails id="1" />
-                </Page>
-            );
-        }
-        return (
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </Page>
-        );
-    }
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>

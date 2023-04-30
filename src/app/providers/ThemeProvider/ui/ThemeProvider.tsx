@@ -1,4 +1,6 @@
-import React, { type FC, useMemo, useState } from 'react';
+import React, {
+    type FC, ReactNode, useMemo, useState,
+} from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 // Явное приведение через as к типу Theme, тк возвращаем строку и ругается ts
@@ -7,9 +9,10 @@ const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || T
 
 interface ThemeProviderProps {
     initialTheme?: Theme;
+    children: ReactNode;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+const ThemeProvider = (props: ThemeProviderProps) => {
     const {
         initialTheme,
         children,
