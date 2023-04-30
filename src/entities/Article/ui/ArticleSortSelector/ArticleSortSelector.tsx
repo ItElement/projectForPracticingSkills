@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { memo, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
-import { ArticleSortFiled } from '../../model/types/article';
 import cls from './ArticleSortSelector.module.scss';
+import { ArticleSortFiled } from '../../model/consts/articleConsts';
 
 interface ArticleSortSelectorProps {
     className?: string;
