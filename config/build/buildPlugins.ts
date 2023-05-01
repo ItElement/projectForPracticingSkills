@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { BuildOptions } from './types/config';
 
@@ -34,6 +35,11 @@ export function buildPlugins(
             patterns: [
                 { from: paths.locales, to: paths.buildLocales },
             ],
+        }),
+        // определяем кольцевые зависимости
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
     ];
 
