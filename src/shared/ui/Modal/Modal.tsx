@@ -3,6 +3,7 @@ import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -37,6 +38,7 @@ export const Modal = (props: ModalProps) => {
     }, [isOpen]);
 
     const closeHandler = useCallback(() => {
+        // если передали onClose
         if (onClose) {
             setIsClosing(true);
             timerRef.current = setTimeout(() => {
@@ -53,9 +55,9 @@ export const Modal = (props: ModalProps) => {
     }, [closeHandler]);
 
     // предотвращаем всплытие
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
+    // const onContentClick = (e: React.MouseEvent) => {
+    //     e.stopPropagation();
+    // };
 
     useEffect(() => {
         if (isOpen) {
@@ -85,12 +87,22 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {children}
-                    </div>
+                <Overlay onClick={closeHandler} />
+                <div className={cls.content}>
+                    {children}
                 </div>
             </div>
         </Portal>
     );
 };
+
+// <Portal>
+//     <div className={classNames(cls.Modal, mods, [className])}>
+//         <Overlay onClick={closeHandler} />
+//         {/* <div className={cls.overlay} onClick={closeHandler}> */}
+//         <div className={cls.content} onClick={onContentClick}>
+//             {children}
+//         </div>
+//         {/* </div> */}
+//     </div>
+// </Portal>
