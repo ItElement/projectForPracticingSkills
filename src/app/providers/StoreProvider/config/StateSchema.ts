@@ -1,6 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction,
     CombinedState,
@@ -10,16 +7,19 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ArticleDetailsSchema } from '@/entities/Article';
 import {
     ArticleDetailCommentsSchema,
     ArticleDetailsPageRecommendationsSchema, ArticleDetailsPageSchema,
-} from 'pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from 'features/addCommentForm';
-import { ArticlePageSchema } from 'pages/ArticlesPage';
-import { ScrollSaveSchema } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/editableProfileCard';
+} from '@/pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from '@/features/addCommentForm';
+import { ArticlePageSchema } from '@/pages/ArticlesPage';
+import { ScrollSaveSchema } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/editableProfileCard';
 
 // объединили два редюсера в articleDetailsPage
 // articleDetailsComments?: ArticleDetailCommentsSchema;

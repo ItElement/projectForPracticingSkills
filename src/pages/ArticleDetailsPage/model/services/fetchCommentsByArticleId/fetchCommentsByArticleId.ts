@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Comment } from 'entities/Comment';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
 
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент
 export const fetchCommentsByArticleId = createAsyncThunk<

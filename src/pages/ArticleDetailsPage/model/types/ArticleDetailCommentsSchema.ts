@@ -1,5 +1,5 @@
-import { Comment } from 'entities/Comment';
 import { EntityState } from '@reduxjs/toolkit';
+import { Comment } from '@/entities/Comment';
 
 // чтобы не указывать ids и entities наследуемся
 // ids: number | string

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '../../types/article';
 
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент

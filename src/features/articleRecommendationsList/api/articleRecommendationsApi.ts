@@ -1,6 +1,6 @@
 // чтобы подключались эндпоинты лениво и не попадали в главный чанк
-import { rtkApi } from 'shared/api/rtkApi';
-import { Article } from 'entities/Article';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { Article } from '@/entities/Article';
 
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Profile } from '@/entities/Profile';
 
 // в джинерике первыйм аргументом, то что мы возвращаем, а второй это аргумент
 export const fetchProfileData = createAsyncThunk<

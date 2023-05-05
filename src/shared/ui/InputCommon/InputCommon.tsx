@@ -1,7 +1,7 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './InputCommon.module.scss';
 
 // с помощью Omit мы боремся с конфликтами редактирования типов
