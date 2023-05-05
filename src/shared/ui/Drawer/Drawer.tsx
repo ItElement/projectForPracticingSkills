@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
-import { useAnimationLib } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLib } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -117,7 +117,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 });
 
 // если isLoaded false то не отрисовываем
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLib();
 
     if (!isLoaded) {
@@ -125,7 +125,14 @@ export const Drawer = memo((props: DrawerProps) => {
     }
 
     return <DrawerContent {...props} />;
-});
+};
+
+// тут оборачиваем в провайдер, для подключения библиотек
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);
 
 // было раньше без драг энд дропа
 // return (
