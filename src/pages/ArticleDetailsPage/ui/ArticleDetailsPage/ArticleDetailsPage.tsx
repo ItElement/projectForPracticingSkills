@@ -7,18 +7,14 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -36,12 +32,17 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     // получем id из url, который указан в нашем конфиге 'ссыдка:id'
     const { id } = useParams<{id: string}>();
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
