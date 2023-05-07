@@ -8,6 +8,7 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
+        // добавили алиасы для путей
         alias: {
             '@': options.paths.src,
         },

@@ -15,10 +15,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
+    //
     config!.resolve!.modules = [paths.src, 'node_modules'];
-    config.resolve!.alias = { '@': paths.src };
-    // config.resolve.modules.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
+    config.resolve!.alias = {
+        ...config.resolve!.alias,
+        '@': paths.src,
+    };
 
     // eslint-disable-next-line no-param-reassign
     const rules = config.module!.rules as RuleSetRule[];
