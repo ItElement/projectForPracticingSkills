@@ -69,7 +69,13 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'warn',
         'lucky-fsd/path-checker': ['error', { alias: '@' }],
-        'lucky-fsd/public-api-imports': ['error', { alias: '@' }],
+        'lucky-fsd/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
