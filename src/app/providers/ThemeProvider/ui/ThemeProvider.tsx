@@ -1,7 +1,9 @@
 import React, {
     type FC, ReactNode, useMemo, useState,
 } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
+import { Theme } from '@/shared/const/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 // Явное приведение через as к типу Theme, тк возвращаем строку и ругается ts
 // если localStorage пустой, то ставим светлую тему

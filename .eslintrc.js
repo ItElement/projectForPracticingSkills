@@ -6,8 +6,10 @@ module.exports = {
     },
     extends: [
         'plugin:react/recommended',
-        'airbnb', 'plugin:i18next/recommended',
-        'plugin:storybook/recommended'],
+        'airbnb',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -74,6 +76,13 @@ module.exports = {
             {
                 alias: '@',
                 testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'lucky-fsd/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
     },

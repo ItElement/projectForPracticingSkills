@@ -1,11 +1,11 @@
 import React, { memo, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTheme } from '@/app/providers/ThemeProvider/lib/useTheme';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserInited, userActions } from '@/entities/User';
-import { AppRouter } from '@/app/providers/router';
+import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 const App = memo(() => {
     const { theme } = useTheme();
