@@ -13,4 +13,5 @@ export {
     ArticleView,
     ArticleTypes,
     ArticleSortFiled,
+    ArticleBlockType,
 } from './model/consts/articleConsts';
