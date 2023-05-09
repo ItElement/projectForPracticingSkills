@@ -41,9 +41,9 @@ export default {
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
-        '^@/(.*)$': '<rootDir>src/$1',
         // svg импортируется как готовый компонент поэтому делаем маппер
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>/src/$1',
         // axios: 'axios/dist/node/axios.cjs',
     },
     // для удобного отображения ошибок в unit теста
