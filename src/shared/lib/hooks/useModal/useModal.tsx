@@ -8,6 +8,11 @@ interface UseModalProps {
     animationDelay: number;
 }
 
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ * @param props
+ */
+
 export function useModal(props: UseModalProps) {
     const {
         animationDelay,
