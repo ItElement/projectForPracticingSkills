@@ -1,7 +1,6 @@
 import {
     AnyAction,
     CombinedState,
-    Dispatch,
     EnhancedStore,
     Reducer,
     ReducersMapObject,
@@ -11,10 +10,7 @@ import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ArticleDetailsSchema } from '@/entities/Article';
-import {
-    ArticleDetailCommentsSchema,
-    ArticleDetailsPageRecommendationsSchema, ArticleDetailsPageSchema,
-} from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { ScrollSaveSchema } from '@/features/ScrollSave';

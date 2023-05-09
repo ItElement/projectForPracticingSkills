@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Flex, FlexProps } from '../Flex/Flex';
 
 // омит исключает какое либо свойство

@@ -1,5 +1,5 @@
 import {
-    MutableRefObject, useCallback, useEffect, useRef,
+    MutableRefObject, useCallback, useRef,
 } from 'react';
 
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
