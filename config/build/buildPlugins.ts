@@ -13,6 +13,8 @@ export function buildPlugins(
         paths, isDev, apiUrl, project,
     }: BuildOptions,
 ): webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
+
     const plugins = [
         // указываем файл, который используется как шаблон
         new HtmlWebpackPlugin({
@@ -20,22 +22,11 @@ export function buildPlugins(
         }),
         // отслеживаем сколько процентов сборки завершено
         new webpack.ProgressPlugin(),
-        // плагин, чтобы css отдельно от js было
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
         // в приложение можем прокидывать глобальные переменные
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
-        }),
-        // настраиваем передачу в bundle переводов
-        new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.buildLocales },
-            ],
         }),
         // определяем кольцевые зависимости
         new CircularDependencyPlugin({
@@ -61,6 +52,20 @@ export function buildPlugins(
         // для анализа размера бандла
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
+        }));
+    }
+
+    if (isProd) {
+        // плагин, чтобы css отдельно от js было
+        plugins.push(new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
+        }));
+        // настраиваем передачу в bundle переводов
+        plugins.push(new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buildLocales },
+            ],
         }));
     }
 

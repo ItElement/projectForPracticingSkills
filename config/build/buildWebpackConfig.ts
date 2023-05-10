@@ -28,7 +28,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         resolve: buildResolvers(options),
         // отслеживаем где произошла ошибка
         // также проверяем, если продакшн версия, то отключаем
-        devtool: isDev ? 'inline-source-map' : undefined,
+        // с eval-cheap-module-source-map быстрей пересборка вебпака
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }

@@ -10,12 +10,14 @@ export function buildBabelLoader(options: BuildBabelLoaderProps) {
         isDev,
         isTsx,
     } = options;
+    const isProd = !isDev;
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     // 2 плагина для того чтобы обрабатывать ts и tsx
@@ -27,7 +29,7 @@ export function buildBabelLoader(options: BuildBabelLoaderProps) {
                     ],
                     '@babel/plugin-transform-runtime',
                     // удаляем ненужное из дерева
-                    isTsx && [
+                    isTsx && isProd && [
                         babelRemovePropsPlugin,
                         {
                             props: ['data-testid'],
