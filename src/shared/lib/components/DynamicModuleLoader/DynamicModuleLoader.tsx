@@ -5,7 +5,8 @@ import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/provid
 
 export type ReducersList = {
     // (2 часть после :) забираем поле из стейт схемы в зависимости от названия
-    // редюсера, который разработчик указал
+    // редюсера, который разработчик указал (избавляет от ошибок с указанием не верного редюсера)
+    // NonNullable говорит что редбюссер должен быть не нулевой
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
