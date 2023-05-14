@@ -32,6 +32,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     // получем id из url, который указан в нашем конфиге 'ссыдка:id'
     const { id } = useParams<{id: string}>();
 
+    // чтобы избавиться от ошибки надо проверить сторибук ли это
     if (!id) {
         return null;
     }
