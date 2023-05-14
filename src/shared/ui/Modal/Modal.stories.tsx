@@ -20,6 +20,7 @@ ModalPrimary.args = {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cupiditate distinctio dolores eaque nisi nulla optio quas quasi soluta unde!',
 };
+ModalPrimary.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const ModalDark = Template.bind({});
 ModalDark.args = {
