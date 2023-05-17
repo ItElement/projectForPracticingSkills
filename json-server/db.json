@@ -643,6 +643,17 @@
       "city": "Москва",
       "username": "Bob",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Москва",
+      "username": "testuser",
+      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     }
   ],
   "article-ratings": [
