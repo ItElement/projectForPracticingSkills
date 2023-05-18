@@ -9,6 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    parameters: {
+        loki: { skip: true },
+    },
 } as ComponentMeta<typeof AvatarDropdown>;
 
 const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;

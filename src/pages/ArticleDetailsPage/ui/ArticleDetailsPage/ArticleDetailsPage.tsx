@@ -32,8 +32,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     // получем id из url, который указан в нашем конфиге 'ссыдка:id'
     const { id } = useParams<{id: string}>();
 
+    const articleId = __PROJECT__ !== 'storybook' ? id : '1';
+
     // чтобы избавиться от ошибки надо проверить сторибук ли это
-    if (!id) {
+    if (!articleId) {
         return null;
     }
 
@@ -42,10 +44,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    <ArticleDetails id={articleId} />
+                    <ArticleRating articleId={articleId} />
                     <ArticleRecommendationsList />
-                    <ArticleDetailsComments id={id} />
+                    <ArticleDetailsComments id={articleId} />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

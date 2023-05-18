@@ -25,10 +25,12 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const isManager = useSelector(isUserManager);
 
     const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(userActions.logout());
+        }
     }, [dispatch]);
 
-    const isAdminPanelAvailable = isAdmin || isManager;
+    const isAdminPanelAvailable = __PROJECT__ !== 'storybook' ? isAdmin || isManager : null;
 
     if (!authData) {
         return null;
