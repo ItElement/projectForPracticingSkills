@@ -15,40 +15,40 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className,
-        sort,
-        onChangeSort,
-        order,
-        onChangeOrder,
-    } = props;
+    const { className, sort, onChangeSort, order, onChangeOrder } = props;
     const { t } = useTranslation('article');
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            value: 'asc',
-            content: t('возрастанию'),
-        },
-        {
-            value: 'desc',
-            content: t('убыванию'),
-        },
-    ], [t]);
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('возрастанию'),
+            },
+            {
+                value: 'desc',
+                content: t('убыванию'),
+            },
+        ],
+        [t],
+    );
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortFiled>[]>(() => [
-        {
-            value: ArticleSortFiled.CREATED,
-            content: t('дате создания'),
-        },
-        {
-            value: ArticleSortFiled.TITLE,
-            content: t('названию'),
-        },
-        {
-            value: ArticleSortFiled.VIEWS,
-            content: t('просмотрам'),
-        },
-    ], [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortFiled>[]>(
+        () => [
+            {
+                value: ArticleSortFiled.CREATED,
+                content: t('дате создания'),
+            },
+            {
+                value: ArticleSortFiled.TITLE,
+                content: t('названию'),
+            },
+            {
+                value: ArticleSortFiled.VIEWS,
+                content: t('просмотрам'),
+            },
+        ],
+        [t],
+    );
 
     // ТАК НЕ ДЕЛАТЬ. СОЗДАНИЕ ДЖЕНЕРИК КОМПОНЕНТА SELECT
     // const changeSortHandler = useCallback((newSort: string) => {

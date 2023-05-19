@@ -37,15 +37,18 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
             setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-        setIsModalOpen(true);
-    }, [hasFeedback, onAccept]);
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -89,27 +92,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
         >
             <VStack max align="center" gap="8">
                 <Text title={starsCount ? t('Спасибо за оценку') : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
-            {!isMobil
-                ? (
-                    <Modal
-                        onClose={cancelHandle}
-                        isOpen={isModalOpen}
-                        lazy
-                    >
-                        {modalContent}
-                    </Modal>
-                )
-                : (
-                    <Drawer
-                        onClose={cancelHandle}
-                        isOpen={isModalOpen}
-                        lazy
-                    >
-                        {modalContent}
-                    </Drawer>
-                )}
+            {!isMobil ? (
+                <Modal onClose={cancelHandle} isOpen={isModalOpen} lazy>
+                    {modalContent}
+                </Modal>
+            ) : (
+                <Drawer onClose={cancelHandle} isOpen={isModalOpen} lazy>
+                    {modalContent}
+                </Drawer>
+            )}
         </Card>
     );
 });

@@ -45,15 +45,21 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     } = props;
     const { t } = useTranslation('profile');
 
-    const onKeyPress = ((event: React.KeyboardEvent<HTMLInputElement>) => {
+    const onKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (!/[0-9]/.test(event.key)) {
             event.preventDefault();
         }
-    });
+    };
 
     if (isLoading) {
         return (
-            <HStack className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <HStack
+                className={classNames(
+                    cls.ProfileCard,
+                    { [cls.loading]: true },
+                    [className],
+                )}
+            >
                 <Loader />
             </HStack>
         );
@@ -64,7 +70,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
             <HStack
                 justify="center"
                 max
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
             >
                 <Text
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -81,14 +90,14 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     };
 
     return (
-        <VStack gap="16" max className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
                 <HStack justify="center" max className={cls.avatarWrapper}>
-                    <Avatar
-                        src={data?.avatar}
-                        alt={t('Аватар')}
-                        size={100}
-                    />
+                    <Avatar src={data?.avatar} alt={t('Аватар')} size={100} />
                 </HStack>
             )}
             <InputCommon

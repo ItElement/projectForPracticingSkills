@@ -13,7 +13,8 @@ export const $api = axios.create({
 // интерцептор отрабатывает перед любым запросом
 $api.interceptors.request.use((config) => {
     if (config.headers) {
-        config.headers.authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+        config.headers.authorization =
+            localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
     }
     return config;
 });

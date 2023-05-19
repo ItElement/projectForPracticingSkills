@@ -25,12 +25,10 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('article');
     // получем id из url, который указан в нашем конфиге 'ссыдка:id'
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     const articleId = __PROJECT__ !== 'storybook' ? id : '1';
 
@@ -41,7 +39,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={articleId} />

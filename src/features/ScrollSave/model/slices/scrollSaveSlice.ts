@@ -12,7 +12,10 @@ export const scrollSaveSlice = createSlice({
     reducers: {
         // с помощью PayloadAction(что мы ожидаем) и принимаем данные из вне
         // динамический ключ
-        setScrollPosition: (state, { payload }: PayloadAction<{path: string; position: number}>) => {
+        setScrollPosition: (
+            state,
+            { payload }: PayloadAction<{ path: string; position: number }>,
+        ) => {
             state.scroll[payload.path] = payload.position;
         },
     },

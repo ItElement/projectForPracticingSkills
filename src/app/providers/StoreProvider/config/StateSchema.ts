@@ -24,7 +24,7 @@ export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scroll: ScrollSaveSchema;
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // асинхронные редюсеры
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
@@ -40,7 +40,10 @@ export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+    reduce: (
+        state: StateSchema,
+        action: AnyAction,
+    ) => CombinedState<StateSchema>;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
     // true - вмонтирован , false - демонтирован
@@ -48,7 +51,7 @@ export interface ReducerManager {
 }
 
 // extends наследует от EnhancedStore
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 

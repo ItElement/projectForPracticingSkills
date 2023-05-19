@@ -10,7 +10,9 @@ export default {
     },
 } as ComponentMeta<typeof InputCommon>;
 
-const Template: ComponentStory<typeof InputCommon> = (args) => <InputCommon {...args} />;
+const Template: ComponentStory<typeof InputCommon> = (args) => (
+    <InputCommon {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -15,6 +15,8 @@ const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    scroll: { scroll: { '/articles': 0 } },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        scroll: { scroll: { '/articles': 0 } },
+    }),
+];

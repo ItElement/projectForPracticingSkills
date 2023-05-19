@@ -16,7 +16,7 @@ export const userSlice = createSlice({
         },
         // проверка авторизован ли пользователь
         initAuthData: (state) => {
-            const user = localStorage.getItem((USER_LOCALSTORAGE_KEY));
+            const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
             if (user) {
                 // распарсиваем из строки в js файл обратно
                 state.authData = JSON.parse(user);

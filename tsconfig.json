@@ -1,37 +1,37 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    // подсвечивает все места, где не указан тип
-    "noImplicitAny": true,
-    "module": "ESNext",
-    // в какую спецификацию компилируем(для поддержки большинства браузеров)
-    "target": "es5",
-    "jsx": "react-jsx",
-    // компилятор будет обрабатывать не только TS файлы, но и JS файлы
-    "allowJs": true,
-    "strict": true,
-    "moduleResolution": "node",
-    // Для абсолютного импорта
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    // позволяет работать с пакетами, которые используют
-    // common js как с обычными пакетами с помощью import
-    "esModuleInterop": true,
-    // позволяет производить импорт без * as
-    "allowSyntheticDefaultImports": true,
-    // должны при импорте типов писать type
-    "isolatedModules": true,
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-  ]
+        "outDir": "./dist/",
+        // подсвечивает все места, где не указан тип
+        "noImplicitAny": true,
+        "module": "ESNext",
+        // в какую спецификацию компилируем(для поддержки большинства браузеров)
+        "target": "es5",
+        "jsx": "react-jsx",
+        // компилятор будет обрабатывать не только TS файлы, но и JS файлы
+        "allowJs": true,
+        "strict": true,
+        "moduleResolution": "node",
+        // Для абсолютного импорта
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        // позволяет работать с пакетами, которые используют
+        // common js как с обычными пакетами с помощью import
+        "esModuleInterop": true,
+        // позволяет производить импорт без * as
+        "allowSyntheticDefaultImports": true,
+        // должны при импорте типов писать type
+        "isolatedModules": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/setupTests.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ]
 }

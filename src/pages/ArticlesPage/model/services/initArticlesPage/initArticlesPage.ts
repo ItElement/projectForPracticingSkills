@@ -11,43 +11,37 @@ export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
->(
-    'articlesPage/initArticlesPage',
-    async (searchParams, thunkAPI) => {
-        const {
-            getState,
-            dispatch,
-        } = thunkAPI;
-        const inited = getArticlesPageInited(getState());
+>('articlesPage/initArticlesPage', async (searchParams, thunkAPI) => {
+    const { getState, dispatch } = thunkAPI;
+    const inited = getArticlesPageInited(getState());
 
-        /**
-         * Получаем из ссылки параметры, кастуем к нашему перечислению
-         * Далее подставляем в запрос при перезапуске страницы
-         * Также можем поделиться ссылкой и человек перейдет на страницу
-         * с нужными настройками сортировки
-         */
+    /**
+     * Получаем из ссылки параметры, кастуем к нашему перечислению
+     * Далее подставляем в запрос при перезапуске страницы
+     * Также можем поделиться ссылкой и человек перейдет на страницу
+     * с нужными настройками сортировки
+     */
 
-        if (!inited) {
-            const orderFromUrl = searchParams.get('order') as SortOrder;
-            const sortFromUrl = searchParams.get('sort') as ArticleSortFiled;
-            const searchFromUrl = searchParams.get('search');
-            const typeFromUrl = searchParams.get('type') as ArticleTypes;
+    if (!inited) {
+        const orderFromUrl = searchParams.get('order') as SortOrder;
+        const sortFromUrl = searchParams.get('sort') as ArticleSortFiled;
+        const searchFromUrl = searchParams.get('search');
+        const typeFromUrl = searchParams.get('type') as ArticleTypes;
 
-            if (orderFromUrl) {
-                dispatch(articlesPageActions.setOrder(orderFromUrl));
-            }
-            if (sortFromUrl) {
-                dispatch(articlesPageActions.setSort(sortFromUrl));
-            }
-            if (searchFromUrl) {
-                dispatch(articlesPageActions.setSearch(searchFromUrl));
-            }
-            if (typeFromUrl) {
-                dispatch(articlesPageActions.setType(typeFromUrl));
-            }
-
-            dispatch(articlesPageActions.initState());
-            dispatch(fetchArticlesList({}));
+        if (orderFromUrl) {
+            dispatch(articlesPageActions.setOrder(orderFromUrl));
         }
-    },
-);
+        if (sortFromUrl) {
+            dispatch(articlesPageActions.setSort(sortFromUrl));
+        }
+        if (searchFromUrl) {
+            dispatch(articlesPageActions.setSearch(searchFromUrl));
+        }
+        if (typeFromUrl) {
+            dispatch(articlesPageActions.setType(typeFromUrl));
+        }
+
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({}));
+    }
+});

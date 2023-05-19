@@ -5,7 +5,8 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 // Явное приведение через as к типу Theme, тк возвращаем строку и ругается ts
 // если localStorage пустой, то ставим светлую тему
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 interface ThemeProviderProps {
     initialTheme?: Theme;
@@ -13,16 +14,16 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider = (props: ThemeProviderProps) => {
-    const {
-        initialTheme,
-        children,
-    } = props;
+    const { initialTheme, children } = props;
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
-    const defaultProps = useMemo(() => ({
-        theme,
-        setTheme,
-    }), [theme]);
+    const defaultProps = useMemo(
+        () => ({
+            theme,
+            setTheme,
+        }),
+        [theme],
+    );
 
     document.body.className = theme;
 

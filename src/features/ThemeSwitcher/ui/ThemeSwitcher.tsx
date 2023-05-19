@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 
 // для передачи из вне дополнительных классов
 interface ThemeSwitcherProps {
-    className?: string
+    className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {

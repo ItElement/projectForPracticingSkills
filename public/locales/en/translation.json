@@ -1,34 +1,31 @@
 {
-  "Язык": "English",
-  "Короткий язык": "En",
+    "Язык": "English",
+    "Короткий язык": "En",
 
+    "Страница не найдена": "Page not found",
 
-  "Страница не найдена": "Page not found",
+    "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+    "Обновить страницу": "Refresh the page",
 
+    "Выдает ошибку": "throw error",
 
-  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
-  "Обновить страницу": "Refresh the page",
+    "Главная": "Main",
+    "О сайте": "About",
+    "Профиль": "Profile",
+    "Статьи": "Articles",
 
+    "Войти": "Log In",
+    "Выйти": "Log Out",
+    "Aдм. панель": "Admin panel",
 
-  "Выдает ошибку": "throw error",
+    "increment": "increment",
+    "decrement": "decrement",
 
-  "Главная": "Main",
-  "О сайте": "About",
-  "Профиль": "Profile",
-  "Статьи": "Articles",
+    "Форма авторизации": "Authorization form",
+    "Введите username": "Enter username",
+    "Введите пароль": "Enter password",
+    "Вы ввели неверный логин или пароль": "Incorrect username or password",
 
-  "Войти": "Log In",
-  "Выйти": "Log Out",
-  "Aдм. панель": "Admin panel",
-
-  "increment": "increment",
-  "decrement": "decrement",
-
-  "Форма авторизации": "Authorization form",
-  "Введите username": "Enter username",
-  "Введите пароль": "Enter password",
-  "Вы ввели неверный логин или пароль": "Incorrect username or password",
-
-  "Комментарии отсутствуют": "There are no comments",
-  "Создать статью": "Create article"
+    "Комментарии отсутствуют": "There are no comments",
+    "Создать статью": "Create article"
 }

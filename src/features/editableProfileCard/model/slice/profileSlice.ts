@@ -39,14 +39,14 @@ export const profileSlice = createSlice({
             })
             // произошла ошибка или успешно загрузили данные
             // action ожидаем на вход ProfileSchema
-            .addCase(fetchProfileData.fulfilled, (
-                state,
-                action: PayloadAction<Profile>,
-            ) => {
-                state.isLoading = false;
-                state.data = action.payload;
-                state.form = action.payload;
-            })
+            .addCase(
+                fetchProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false;
+                    state.data = action.payload;
+                    state.form = action.payload;
+                },
+            )
             .addCase(fetchProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -58,16 +58,16 @@ export const profileSlice = createSlice({
             })
             // произошла ошибка или успешно загрузили данные
             // action ожидаем на вход ProfileSchema
-            .addCase(updateProfileData.fulfilled, (
-                state,
-                action: PayloadAction<Profile>,
-            ) => {
-                state.isLoading = false;
-                state.data = action.payload;
-                state.form = action.payload;
-                state.readonly = true;
-                state.validateError = undefined;
-            })
+            .addCase(
+                updateProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false;
+                    state.data = action.payload;
+                    state.form = action.payload;
+                    state.readonly = true;
+                    state.validateError = undefined;
+                },
+            )
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.validateError = action.payload;

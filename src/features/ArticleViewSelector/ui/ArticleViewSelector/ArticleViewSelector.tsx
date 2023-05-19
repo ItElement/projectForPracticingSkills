@@ -26,11 +26,7 @@ const viewTypes = [
 ];
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        onViewClick,
-        view,
-    } = props;
+    const { className, onViewClick, view } = props;
     const { t } = useTranslation();
 
     // передаем новый тип отображения при клике (используем замыкание)

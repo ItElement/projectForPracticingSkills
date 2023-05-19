@@ -1,12 +1,20 @@
 import React, {
-    InputHTMLAttributes, memo, SyntheticEvent, useEffect, useRef, useState,
+    InputHTMLAttributes,
+    memo,
+    SyntheticEvent,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 // с помощью Omit мы боремся с конфликтами редактирования типов
 // то есть первым аргументом принимаем то что хотим забрать, а вторым, что исключить
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -54,7 +62,7 @@ export const Input = memo((props: InputProps) => {
         setIsFocused(true);
     };
 
-    const onSelect = (e:SyntheticEvent<HTMLInputElement, Event>) => {
+    const onSelect = (e: SyntheticEvent<HTMLInputElement, Event>) => {
         setCaretPosition(e?.currentTarget?.selectionStart || 0);
     };
 
@@ -65,9 +73,7 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>
-                    {`${placeholder}>`}
-                </div>
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
             <div className={cls.caretWrapper}>
                 <input

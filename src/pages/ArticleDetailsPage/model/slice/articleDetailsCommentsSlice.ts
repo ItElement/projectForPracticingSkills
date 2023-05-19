@@ -1,12 +1,11 @@
 import {
     createEntityAdapter,
-    createSlice, PayloadAction,
+    createSlice,
+    PayloadAction,
 } from '@reduxjs/toolkit';
 import { Comment } from '@/entities/Comment';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import {
-    fetchCommentsByArticleId,
-} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailCommentsSchema } from '../types/ArticleDetailCommentsSchema';
 
 const commentsAdapter = createEntityAdapter<Comment>({
@@ -17,7 +16,8 @@ const commentsAdapter = createEntityAdapter<Comment>({
 // делаем селектор с помощью которого будем комменты получать
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
     // commentsAdapter.getInitialState() - функция возвращающая дефолтный стейт
-    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+    (state) =>
+        state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({
@@ -38,13 +38,13 @@ const articleDetailsCommentsSlice = createSlice({
             })
             // произошла ошибка или успешно загрузили данные
             // action ожидаем на вход Article
-            .addCase(fetchCommentsByArticleId.fulfilled, (
-                state,
-                action: PayloadAction<Comment[]>,
-            ) => {
-                state.isLoading = false;
-                commentsAdapter.setAll(state, action.payload);
-            })
+            .addCase(
+                fetchCommentsByArticleId.fulfilled,
+                (state, action: PayloadAction<Comment[]>) => {
+                    state.isLoading = false;
+                    commentsAdapter.setAll(state, action.payload);
+                },
+            )
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -52,7 +52,8 @@ const articleDetailsCommentsSlice = createSlice({
     },
 });
 
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;
 // export const { actions: articleDetailsCommentActions } = articleDetailsCommentsSlice;
 
 // ids - это айдишник из entities, а entities

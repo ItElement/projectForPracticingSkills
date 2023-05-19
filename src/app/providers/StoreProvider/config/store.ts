@@ -31,14 +31,15 @@ export function createReduxStore(
         devTools: __IS_DEV__,
         // инициализируем стэйт
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                // можем передать любые данные
-                extraArgument: {
-                    api: $api,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    // можем передать любые данные
+                    extraArgument: {
+                        api: $api,
+                    },
                 },
-            },
-        }).concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware),
     });
 
     // добавили новое поле
@@ -49,4 +50,4 @@ export function createReduxStore(
 }
 
 // типизируем диспатч
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

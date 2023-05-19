@@ -5,7 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
@@ -15,9 +18,7 @@ interface AvatarDropdownProps {
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
@@ -30,7 +31,8 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         }
     }, [dispatch]);
 
-    const isAdminPanelAvailable = __PROJECT__ !== 'storybook' ? isAdmin || isManager : null;
+    const isAdminPanelAvailable =
+        __PROJECT__ !== 'storybook' ? isAdmin || isManager : null;
 
     if (!authData) {
         return null;
@@ -41,10 +43,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             className={classNames('', {}, [className])}
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Aдм. панель'),
-                    href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Aдм. панель'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),
@@ -54,7 +60,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar fallbackInverted size={30} alt={t('Аватар')} src={authData.avatar} />}
+            trigger={
+                <Avatar
+                    fallbackInverted
+                    size={30}
+                    alt={t('Аватар')}
+                    src={authData.avatar}
+                />
+            }
         />
     );
 });

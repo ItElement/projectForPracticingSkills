@@ -1,12 +1,19 @@
 import React, {
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './InputCommon.module.scss';
 
 // с помощью Omit мы боремся с конфликтами редактирования типов
 // то есть первым аргументом принимаем то что хотим забрать, а вторым, что исключить
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputCommonProps extends HTMLInputProps {
     className?: string;

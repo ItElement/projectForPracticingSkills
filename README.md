@@ -17,6 +17,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run start:dev:server` - Запуск backend сервера
 - `npm run build:prod` - Сборка в prod режиме
 - `npm run build:dev` - Сборка в dev режиме (не минимизирован)
+- `npm run prettier` - Правки проекта prettier-ом
 - `npm run lint:ts` - Проверка ts файлов линтером
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
@@ -83,6 +84,12 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
+
+----
+## Prettier
+
+##### Запуск prettier
+- `npm run prettier` - Правки проекта prettier-ом
 
 ----
 ## Storybook

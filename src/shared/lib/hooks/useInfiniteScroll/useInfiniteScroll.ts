@@ -9,11 +9,7 @@ export interface UseInfiniteScrollOptions {
 }
 
 export function useInfiniteScroll(props: UseInfiniteScrollOptions) {
-    const {
-        wrapperRef,
-        triggerRef,
-        callback,
-    } = props;
+    const { wrapperRef, triggerRef, callback } = props;
 
     useEffect(() => {
         const wrapperElement = wrapperRef.current;

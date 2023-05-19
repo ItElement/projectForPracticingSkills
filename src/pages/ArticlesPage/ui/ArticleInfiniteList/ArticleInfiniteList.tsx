@@ -15,9 +15,7 @@ interface ArticleInfiniteListProps {
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('article');
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
@@ -25,9 +23,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const view = useSelector(getArticlesPageView);
 
     if (error) {
-        return (
-            <Text title={t('Ошибка загрузки статей')} />
-        );
+        return <Text title={t('Ошибка загрузки статей')} />;
     }
 
     return (
