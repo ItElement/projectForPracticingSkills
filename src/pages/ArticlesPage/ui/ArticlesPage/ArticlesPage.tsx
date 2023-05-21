@@ -30,6 +30,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const [searchParams, setSearchParams] = useSearchParams();
 
+    // тестово получил статью по id
+    // const articleItem = useArticleItemById('1');
+    // console.log(articleItem)
+
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());

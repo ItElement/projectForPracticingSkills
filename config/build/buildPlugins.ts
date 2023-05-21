@@ -56,7 +56,7 @@ export function buildPlugins(
     }
 
     if (isProd) {
-        // плагин, чтобы css отдельно от js было
+        // плагин, чтобы css отдельно от js был
         plugins.push(new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
